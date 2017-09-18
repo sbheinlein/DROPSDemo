@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+    <!-- General description of your web application -->
+    <display-name>DROPS Demo project</display-name>
+    <description>DROPS Demo project</description>
+
+
+    <!-- Context initialization parameters that define shared
+         String constants used within your application, which
+         can be customized by the system administrator who is
+         installing your application.  The values actually
+         assigned to these parameters can be retrieved in a
+         servlet or JSP page by calling:
+
+             String value =
+               getServletContext().getInitParameter("name");
+
+         where "name" matches the <param-name> element of
+         one of these initialization parameters.
+
+         You can define any number of context initialization
+         parameters, including zero.
+    -->
+
+    <context-param>
+      <param-name>SJULLIAND</param-name>
+      <param-value>SJULLIAND@drops-software.com</param-value>
+      <description>
+        The EMAIL address of the guy responsible for this "thing"
+      </description>
+    </context-param>
+    
+    <servlet>
+      <servlet-name>home</servlet-name>      
+      <servlet-class>com.drops.demo.servlet.pages.Home</servlet-class>
+    </servlet>
+    
+    <servlet>
+      <servlet-name>config</servlet-name>      
+      <servlet-class>com.drops.demo.servlet.pages.Config</servlet-class>
+    </servlet>
+    
+    <servlet>
+      <servlet-name>gamesList</servlet-name>      
+      <servlet-class>com.drops.demo.servlet.list.Games</servlet-class>     
+    </servlet>
+    
+    <servlet>
+      <servlet-name>peopleList</servlet-name>      
+      <servlet-class>com.drops.demo.servlet.list.People</servlet-class>     
+    </servlet>
+
+	<servlet>
+      <servlet-name>about</servlet-name>      
+      <servlet-class>com.drops.demo.servlet.pages.About</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>home</servlet-name>
+      <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+      <servlet-name>config</servlet-name>
+      <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>gamesList</servlet-name>
+      <url-pattern>/gamesList</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>peopleList</servlet-name>
+      <url-pattern>/peopleList</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+      <servlet-name>about</servlet-name>
+      <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    
+    <!-- 30 minutes -->
+    <session-config>
+      <session-timeout>30</session-timeout>    
+    </session-config>
+</web-app>

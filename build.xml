@@ -1,0 +1,41 @@
+<project default="main" basedir="">	
+	<property name="base.dir" value="." />
+	<property name="webinf.dir" value="${base.dir}/web/WEB-INF" />
+	
+	<!-- Classpath for the project -->	
+	<path id="master-classpath">
+	  <fileset dir="${webinf.dir}/lib">
+	    <include name="*.jar"/>
+	  </fileset>
+	</path>
+	
+	<target name="main" depends="clean, war" />
+	
+	<target name="clean">
+		<delete dir="${base.dir}/dist"/>
+        <delete dir="${webinf.dir}/classes"/>
+        <delete dir="${webinf.dir}/lib"/>
+    </target>
+
+    <target name="compile">
+    	<!-- Copie des libs externes -->
+    	<mkdir dir="${webinf.dir}/lib"/>
+    	<copy todir="${webinf.dir}/lib">
+    		<fileset dir="${base.dir}/lib"/>
+    	</copy>
+    	
+    	<!-- Compilation des classes -->
+        <mkdir dir="${webinf.dir}/classes"/>
+        <javac srcdir="${base.dir}/src" destdir="${webinf.dir}/classes" includeAntRuntime="false" fork="true">
+    		<classpath refid="master-classpath"/>
+        </javac>
+    	
+    	<!-- Copie de la configuration -->
+    	<copy file="${base.dir}/config/config.properties" todir="${webinf.dir}/classes"/>
+    </target>	
+
+    <target name="war" depends="compile">
+        <mkdir dir="${base.dir}/dist"/>
+        <jar destfile="${base.dir}/dist/DemoProject.war" basedir="${base.dir}/web" />
+    </target>
+</project>
