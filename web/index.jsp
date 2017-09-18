@@ -45,7 +45,7 @@
 			}
 			
 			$(function() {
-				getContent("<%= target %>", <%= paramJSON.toJSONString() %>);
+				getContent("home", {});
 			});
 		</script>
 	</head>
@@ -63,15 +63,14 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<div class="navbar-text navbar-right">
 						&nbsp;			
-						<span class="label label-<%=configuration.get("drops.version.class")%>"><%= configuration.get("drops.version") %></span>
+						<span class="label label-primary">1.0.0.0</span>
 						&nbsp;
 					</div>
 					<ul class="nav navbar-nav">
-						<li><a href="index.jsp" alt="home"><%= BootstrapUI.glyphIcon("star","Home") %></a></li>
-						<li><a href="javascript:getContent('config')" alt="config"><%= BootstrapUI.glyphIcon("wrench","Configuration") %></a></li>
-						<li><a href="javascript:getContent('gamesList')" alt="gameslist"><%= BootstrapUI.glyphIcon("list","Games list") %></a></li>
-						<li><a href="javascript:getContent('peopleList')" alt="peoplelist"><%= BootstrapUI.glyphIcon("user","People list") %></a></li>
-						<li><a href="javascript:getContent('about')" alt="about"><%= BootstrapUI.glyphIcon("question-sign","About") %></a></li>
+						<li><a href="index.jsp" alt="home"><span class='glyphicon glyphicon-star' aria-hidden='true'></span>&nbsp;&nbsp;Home</a></li>
+						<li><a href="javascript:getContent('config')" alt="config"><span class='glyphicon glyphicon-wrench' aria-hidden='true'></span>&nbsp;&nbsp;Configuration</a></li>
+						<li><a href="javascript:getContent('gamesList')" alt="gameslist"><span class='glyphicon glyphicon-list' aria-hidden='true'></span>&nbsp;&nbsp;Games list</a></li>
+						<li><a href="javascript:getContent('peopleList')" alt="peoplelist"><span class='glyphicon glyphicon-user' aria-hidden='true'></span>&nbsp;&nbsp;People list</a></li>
 					</ul>
 				</div>
 			</div>
